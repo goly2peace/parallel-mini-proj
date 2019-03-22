@@ -10,7 +10,7 @@ var app = express();
 
 var io = require('socket.io')();
 io.on('connection', function (client) {
-  console.log('user connected.');
+  console.log('a user connected.');
 });
 io.listen(3001);
 global.io = io;
