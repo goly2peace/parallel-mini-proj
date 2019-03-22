@@ -22,7 +22,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body {
-  background: rgb(253, 163, 111);
+  background: rgb(255, 173, 135);
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -39,7 +39,12 @@ body {
   margin-bottom: 0;
   
 }
-
+.header{
+  color: #fff;
+}
+.header h1{
+  
+}
 
 .login-header {
   background: #28d;
@@ -53,7 +58,7 @@ body {
 
 .login-container {
 
-  background: rgb(253, 163, 111);
+  background: rgb(255, 173, 135);
   border: 4px solid white;
   /* padding: 70px 0; */
   /* width: 50%; */
@@ -102,7 +107,7 @@ body {
 }
 
 .login input[type="submit"]:hover {
-  background: #17c;
+  background: rgb(248, 107, 25);
 }
 
 /* Buttons' focus effect */
