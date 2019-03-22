@@ -22,7 +22,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body {
-  background: #456;
+  background: #F3E2A9;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -49,13 +49,13 @@ body {
 }
 
 .login-header {
-  background: #28d;
+  background: #F5C367;
   padding: 20px;
   font-size: 1.4em;
   font-weight: normal;
   text-align: center;
   text-transform: uppercase;
-  color: #fff;
+  color: #0C0C0B;
 }
 
 .login-container {
@@ -94,17 +94,17 @@ body {
 }
 
 .login input[type="submit"] {
-  background: #28d;
+  background: #F5C367;
   border-color: transparent;
-  color: #fff;
+  color: #0C0C0B;
   cursor: pointer;
 }
 
 .login input[type="submit"]:hover {
-  background: #17c;
+  background: #FFBF00;
 }
 
 /* Buttons' focus effect */
 .login input[type="submit"]:focus {
-  border-color: #05a;
+  border-color: #FFBF00;
 }

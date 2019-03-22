@@ -39,13 +39,13 @@ export default class Login extends Component {
     return (
       <div style={{ top: 0, bottom: 0, right: 0, left: 0, margin: 'auto', marginTop: '10vh', width: '30%' }}>
         <div className="login">
-          <div className="login-triangle" />
+          
         
           <h2 className="login-header">Log in</h2>
 
           <div className="login-container">
             <p><input type="text" placeholder="Username" value={this.state.username} onChange={this.handleChange}/></p>
-            <p><input type="submit" value="Log in" onClick={this.handleSubmit} /></p>
+            <p><input type="submit" value="Login" onClick={this.handleSubmit} /></p>
           </div>
         </div>
           {/*<input type="submit" value="Login" onClick={this.handleSubmit}/>*/}
