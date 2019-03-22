@@ -22,7 +22,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body {
-  background: #456;
+  background: rgb(255, 173, 135);
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -37,15 +37,13 @@ body {
 .login p {
   margin-top: 0;
   margin-bottom: 0;
+  
 }
-
-/* The triangle form is achieved by a CSS hack */
-.login-triangle {
-  width: 0;
-  margin-right: auto;
-  margin-left: auto;
-  border: 12px solid transparent;
-  border-bottom-color: #28d;
+.header{
+  color: #fff;
+}
+.header h1{
+  
 }
 
 .login-header {
@@ -59,13 +57,20 @@ body {
 }
 
 .login-container {
-  background: #ebebeb;
-  padding: 12px;
+
+  background: rgb(255, 173, 135);
+  border: 4px solid white;
+  /* padding: 70px 0; */
+  /* width: 50%; */
+  /* padding: 12px; */
 }
 
 /* Every row inside .login-container is defined with p tags */
 .login p {
   padding: 12px;
+}
+.background{
+  text-align: center;
 }
 
 .login input {
@@ -78,6 +83,7 @@ body {
   outline: 0;
   font-family: inherit;
   font-size: 0.95em;
+  border: 4px solid rgb(185, 119, 81);
 }
 
 .login input[type="email"],
@@ -94,14 +100,14 @@ body {
 }
 
 .login input[type="submit"] {
-  background: #28d;
-  border-color: transparent;
+  background: rgb(247, 139, 77);
+  border: 4px solid rgb(185, 119, 81);
   color: #fff;
   cursor: pointer;
 }
 
 .login input[type="submit"]:hover {
-  background: #17c;
+  background: rgb(248, 107, 25);
 }
 
 /* Buttons' focus effect */

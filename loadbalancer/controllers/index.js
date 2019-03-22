@@ -29,11 +29,11 @@ postPaths.map(path => {
     axios.post(ip.primaryBackend + path, req.body)
       .then(function (response) {
         if (activeBackend === 2) {
-          console.log("primary backend is back and taking over the system");
+          console.log("primary server is back and taking over");
           activeBackend = 1;
         }
         if (path === '/sendMessage') io.emit('chat', response.data);
-        console.log('From: primary backend');
+        console.log('From: primary');
         res.send(response.data);
       })
       .catch(function (err) {
@@ -42,12 +42,12 @@ postPaths.map(path => {
         axios.post(ip.secondaryBackend + path, req.body)
           .then(function (response) {
             if (activeBackend === 1) {
-              console.log("primary backend is inactived");
-              console.log("secondary backend is taking over the system");
+              console.log("primary server is not working");
+              console.log("secondary server is taking over");
               activeBackend = 2;
             }
             if (path === '/sendMessage') io.emit('chat', response.data);
-            console.log('From: secondary backend');
+            console.log('From: secondary');
             res.send(response.data);
           })
           .catch(function (err) {
@@ -64,10 +64,10 @@ getPaths.map(path => {
     axios.get(ip.primaryBackend + path, { params: req.query })
       .then(function (response) {
         if (activeBackend === 2) {
-          console.log("primary backend is back and taking over the system");
+          console.log("primary server is back and taking over");
           activeBackend = 1;
         }
-        console.log('From: primary backend');
+        console.log('From: primary');
         res.send(response.data);
       })
       .catch(function (err) {
@@ -76,11 +76,11 @@ getPaths.map(path => {
         axios.get(ip.secondaryBackend + path, { params: req.query })
           .then(function (response) {
             if (activeBackend === 1) {
-              console.log("primary backend is inactived");
-              console.log("secondary backend is taking over the system");
+              console.log("primary server is not working");
+              console.log("secondary server is taking over the system");
               activeBackend = 2;
             }
-            console.log('From: secondary backend');
+            console.log('From: secondary server');
             res.send(response.data);
           })
           .catch(function (err) {
