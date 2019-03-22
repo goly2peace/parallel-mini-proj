@@ -41,9 +41,10 @@ export default class Login extends Component {
       alignItems: 'center', position: 'absolute',
       top: '20%', bottom: 0, right: 0, left: 0,
       margin: 'auto', width: '100%', height:'50vh' }}>
-        <div className="login">  
-          <h2 className="login-header">Log in</h2>
 
+        <div className="login">
+        <img src="favicon.png" alt="Smiley face" align = "middle" width = "120"></img>
+        <h1 class="login-header">Enter username</h1>
           <div className="login-container">
             <p><input type="text" placeholder="Username" value={this.state.username} onChange={this.handleChange}/></p>
             <p><input type="submit" value="Login" onClick={this.handleSubmit} /></p>
