@@ -42,6 +42,7 @@ export default class Login extends Component {
       top: '20%', bottom: 0, right: 0, left: 0,
       margin: 'auto', width: '100%', height:'50vh' }}>
         <div className="login">
+        <h1 class="header">Enter username</h1>
           <div className="login-container">
             <p><input type="text" placeholder="Username" value={this.state.username} onChange={this.handleChange}/></p>
             <p><input type="submit" value="Login" onClick={this.handleSubmit} /></p>
