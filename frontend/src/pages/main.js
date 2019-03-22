@@ -298,7 +298,7 @@ class Main extends Component {
                                                 }}
                                                 onClick={this.handleClick}
                                             >
-                                                Add group
+                                               <img alt = "app_icon" width = "50" src="add_friend.png"/> Add group
                                                 {                                  
                                                     this.state.isShowingModal &&
                                                     <ModalContainer onClose={this.handleClose}>
@@ -454,7 +454,7 @@ class Main extends Component {
                 <button 
                         style={{ 
                             width: '128px', 
-                            marginTop: '8px',
+                            marginTop: '0px',
                             height: '48px', 
                             backgroundColor: '#28d', 
                             borderColor: '#28d', 
