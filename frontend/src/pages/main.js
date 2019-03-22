@@ -283,6 +283,7 @@ class Main extends Component {
                 <div className="row">
                     <div className="col-md-3 no-padding-right" style={{ height: '100%' }}>
                         <div className="wrapper">
+                        
                         <button 
                                                 style={{ 
                                                     width: '128px', 
@@ -364,11 +365,29 @@ class Main extends Component {
                                     <div className="main-nav">
                                         <div className="main-nav-item"><a className="main-nav-item-link" href="#">{this.state.selectGroupName}</a></div>
                                         <div className="options">
+                                        <button 
+                        style={{ 
+                            width: '128px', 
+                            marginTop: '0px',
+                            height: '30px', 
+                            backgroundColor: 'red', 
+                            borderColor: '#28d', 
+                            color: 'white',
+                            fontSize: 18, 
+                            float: 'right', 
+                            marginRight: '48px',
+                            borderRadius: '0px'
+                        }}
+                        onClick={this.onLogOutClick}
+                    >
+                         <img alt = "app_icon" width = "20" src="logout.png"/> Log out
+                    </button>
                                         {
                                             this.state.selectedGroupID != '' &&
                                             <button 
                                                 style={{ 
                                                     backgroundColor: 'gray', 
+                                                    marginTop: '30px',
                                                     width: '128px', 
                                                     height: '32px', 
                                                     border: '0px solid',
@@ -451,23 +470,7 @@ class Main extends Component {
                     </div>
                 </div>
                 
-                <button 
-                        style={{ 
-                            width: '128px', 
-                            marginTop: '0px',
-                            height: '48px', 
-                            backgroundColor: '#28d', 
-                            borderColor: '#28d', 
-                            color: 'white',
-                            fontSize: 18, 
-                            float: 'right', 
-                            marginRight: '48px',
-                            borderRadius: '0px'
-                        }}
-                        onClick={this.onLogOutClick}
-                    >
-                        Log out
-                    </button>
+                
 
             </div>
             
