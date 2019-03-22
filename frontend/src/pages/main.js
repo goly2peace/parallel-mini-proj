@@ -2,10 +2,10 @@ import './styleMain.css';
 import './style.css';
 
 import * as Scroll from 'react-scroll';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import {Link,Element,Events,animateScroll as scroll,scrollSpy, scroller} from 'react-scroll'
 
-import { ModalContainer, ModalDialog } from 'react-modal-dialog';
-import React, { Component } from 'react';
+import {ModalContainer,ModalDialog} from 'react-modal-dialog';
+import React,{Component} from 'react';
 
 import Cookies from 'universal-cookie';
 import GroupRow from '../GroupRow';
@@ -25,15 +25,9 @@ class Main extends Component {
         isJoin : [],
         text: '',
         messages: [],
-        lastMessage: {
-
-        },
-        unread: {
-
-        },
-        nameOfuser: {
-
-        },
+        lastMessage: {},
+        unread: {},
+        nameOfuser: {},
         groupList: [],
         joinedGroups: [],
         isShowingModal: false,
@@ -47,7 +41,7 @@ class Main extends Component {
             
             this.setState({messageOrder: res.data.messageOrder}, () => {
 
-                this.socket.on('chat', (result) => {
+                this.socket.on('chat',(result) => {
 
                     if (this.state.messageOrder + 1 == result.messageOrder) {
 
@@ -57,7 +51,7 @@ class Main extends Component {
 
                         let messages = this.state.messages.slice();
                         let lastMessage = this.state.lastMessage;
-                        //  message = { ...message, user: { uid: message.uid , username:message.user.name} };
+                        //  message = { ...message,user: { uid: message.uid ,username:message.user.name} };
                         messages.push({ ...result.message,
                             user: {
                                 uid: result.message.uid,
@@ -156,7 +150,7 @@ class Main extends Component {
                 this.getUnread(GID);
 
             });
-        }.bind(this)).catch(function (err) {
+        }.bind(this)).catch(function(err) {
             console.error(err);
             axios.post(IpList.loadBalancer + '/setReadAt', {
                 uid: cookies.get('uid'),
@@ -180,7 +174,7 @@ class Main extends Component {
 
                     response.data.messages.map((message) => {
 
-                        message = { ...message, user: { uid: message.uid , username:message.user.name} };
+                        message = { ...message,user: { uid: message.uid,username:message.user.name} };
                         messages.push(message);
                     })
                     let lastMessage = this.state.lastMessage;
@@ -189,7 +183,7 @@ class Main extends Component {
                     unread[group._id] = res.data.messages.length;
                     lastMessage[group._id] = response.data.messages[response.data.messages.length - 1].content;
 
-                    this.setState({ lastMessage, unread });
+                    this.setState({lastMessage,unread });
                 }.bind(this)).catch(function (err) {
                     console.error(err);
                 });
@@ -202,7 +196,7 @@ class Main extends Component {
     getAllGroup = () => {
         axios.get(IpList.loadBalancer + '/getAllGroup').then(function (response) {
             const myData = [...response.data].sort((x, y) => x.name.localeCompare(y.name))
-            this.setState({ groupList: myData }, this.getMessage);
+            this.setState({ groupList: myData },this.getMessage);
 
         }.bind(this)).catch(function (err) {
             console.error(err);
@@ -428,7 +422,7 @@ class Main extends Component {
                                     <div className="bottom" id="bottom">
                                         <input className="input" id="input" value={this.state.text} onChange={this.handleChange} onKeyDown={(e) => { e.keyCode == 13 && this.sendText() }} />
                                         <div className="send" id="send" onClick={this.sendText}>
-                                            <div style={{ width: '100%', height: '100%', paddingTop: '4px' }}>
+                                            <div style={{ width: '100%',height: '100%',paddingTop: '4px' }}>
                                                 <div 
                                                     style={{ 
                                                         width: '32px',

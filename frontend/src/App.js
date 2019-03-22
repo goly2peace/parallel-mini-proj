@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 
 import Cookies from 'universal-cookie';
 import Login from './pages/login';
@@ -24,8 +24,8 @@ class App extends Component {
         this.setState(gid);
     }
 
-    componentDidMount() {
-        console.log( cookies.get('uid'), window.location.pathname   )
+    componentDidMount(){
+        console.log(cookies.get('uid'),window.location.pathname)
         if(window.location.pathname === '/logout') {
             cookies.remove('isAuthen');
             cookies.remove('username');
@@ -33,19 +33,19 @@ class App extends Component {
             console.log( cookies.get('uid'))
             window.location.assign('login'); 
         }
-        else if (window.location.pathname !== '/login' && cookies.get('isAuthen') !== 'true') {
+        else if(window.location.pathname !== '/login' && cookies.get('isAuthen') !== 'true') {
             window.location.assign('login');
-        } else if (window.location.pathname !== '/main' && cookies.get('isAuthen') === 'true') {
+        }
+	else if(window.location.pathname !== '/main' && cookies.get('isAuthen') === 'true') {
             window.location.assign('main');
         }
     }
 
-    render() {
-        return (
+    render(){
+        return(
             <div style={{ width: '100%', height: '100%'}}>
                 {window.location.pathname === '/login' && <Login changeUid = { this.changeUid } />}
                 {window.location.pathname === '/main' && <Main uid = {this.state.uid} gid = {this.state.uid} changeGid = {this.changeGid}/>}
-
             </div>
         );
     }
