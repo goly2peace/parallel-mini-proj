@@ -282,41 +282,25 @@ class Main extends Component {
 
     render() {
         return (
-            <div style={{ width: '100%', height: '100vh' }}>
+            <div style={{ width: '90%', height: '100vh' }}>
                 <div className="row" style={{ height: '64px' }}>
-                   <button 
-                        style={{ 
-                            width: '128px', 
-                            marginTop: '8px',
-                            height: '48px', 
-                            backgroundColor: '#28d', 
-                            borderColor: '#28d', 
-                            color: 'white',
-                            fontSize: 18, 
-                            float: 'right', 
-                            marginRight: '48px',
-                            borderRadius: '0px'
-                        }}
-                        onClick={this.onLogOutClick}
-                    >
-                        Log out
-                    </button>
+                   
                 </div>
                 <div className="row">
                     <div className="col-md-3 no-padding-right" style={{ height: '100%' }}>
                         <div className="wrapper">
-                            <nav className="nav" id="nav">
-                                <div className="default-nav">
-                                    <div className="main-nav">
-                                        <div className="main-nav-item"><a className="main-nav-item-link" href="#">Group List</a></div>
-                                        <div className="options">
-                                            <button 
+                        <button 
                                                 style={{ 
-                                                    backgroundColor: 'red', 
                                                     width: '128px', 
-                                                    height: '32px', 
-                                                    border: '0px solid',
-                                                    borderRadius: '16px'
+                                                    marginTop: '0px',
+                                                    height: '48px', 
+                                                    width: '100%',
+                                                    backgroundColor: 'blueviolet',  
+                                                    color: 'white',
+                                                    fontSize: '18', 
+                                                    float: 'right', 
+                                                    marginRight: '0px',
+                                                    borderRadius: '0px'
                                                 }}
                                                 onClick={this.handleClick}
                                             >
@@ -336,13 +320,6 @@ class Main extends Component {
                                                     </ModalContainer>
                                                 }
                                             </button>
-
-                                        
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </nav>
                             <div className="myInner" id="inner" style={{ display: 'flex', flexDirection: 'column' }} >
                                 <div style={{ backgroundColor: 'rgba(0,0,0,0.1)', width: '100%', padding: 8 }} >JOINED GROUPS</div>
                                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', display: 'block', overflow: 'scroll' }}>
@@ -479,8 +456,27 @@ class Main extends Component {
                         </div>
                     </div>
                 </div>
+                
+                <button 
+                        style={{ 
+                            width: '128px', 
+                            marginTop: '8px',
+                            height: '48px', 
+                            backgroundColor: '#28d', 
+                            borderColor: '#28d', 
+                            color: 'white',
+                            fontSize: 18, 
+                            float: 'right', 
+                            marginRight: '48px',
+                            borderRadius: '0px'
+                        }}
+                        onClick={this.onLogOutClick}
+                    >
+                        Log out
+                    </button>
 
             </div>
+            
         );
     }
 }
