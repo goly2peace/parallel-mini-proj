@@ -42,7 +42,7 @@ class App extends Component {
 
     render() {
         return (
-            <div style={{ width: '100%', height: '100vh' }}>
+            <div style={{ width: '100%', height: '100%'}}>
                 {window.location.pathname === '/login' && <Login changeUid = { this.changeUid } />}
                 {window.location.pathname === '/main' && <Main uid = {this.state.uid} gid = {this.state.uid} changeGid = {this.changeGid}/>}
 

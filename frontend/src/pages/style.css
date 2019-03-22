@@ -22,12 +22,14 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body {
+
   background: #F3E2A9;
+
   font-family: 'Open Sans', sans-serif;
 }
 
 .login {
-  width: 400px;
+  width: 500px;
   margin: 16px auto;
   font-size: 16px;
 }
@@ -37,16 +39,9 @@ body {
 .login p {
   margin-top: 0;
   margin-bottom: 0;
+  
 }
 
-/* The triangle form is achieved by a CSS hack */
-.login-triangle {
-  width: 0;
-  margin-right: auto;
-  margin-left: auto;
-  border: 12px solid transparent;
-  border-bottom-color: #28d;
-}
 
 .login-header {
   background: #F5C367;
@@ -59,13 +54,20 @@ body {
 }
 
 .login-container {
-  background: #ebebeb;
-  padding: 12px;
+
+  background: white;
+  border: 4px solid white;
+  /* padding: 70px 0; */
+  /* width: 50%; */
+  /* padding: 12px; */
 }
 
 /* Every row inside .login-container is defined with p tags */
 .login p {
   padding: 12px;
+}
+.background{
+  text-align: center;
 }
 
 .login input {
@@ -78,6 +80,7 @@ body {
   outline: 0;
   font-family: inherit;
   font-size: 0.95em;
+  border: 4px solid #BDBDBD;
 }
 
 .login input[type="email"],
@@ -94,9 +97,11 @@ body {
 }
 
 .login input[type="submit"] {
+
   background: #F5C367;
   border-color: transparent;
   color: #0C0C0B;
+
   cursor: pointer;
 }
 

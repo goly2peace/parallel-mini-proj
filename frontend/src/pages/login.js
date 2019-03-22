@@ -37,10 +37,11 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div style={{ top: 0, bottom: 0, right: 0, left: 0, margin: 'auto', marginTop: '10vh', width: '30%' }}>
-        <div className="login">
-          
-        
+      <div style={{
+      alignItems: 'center', position: 'absolute',
+      top: '20%', bottom: 0, right: 0, left: 0,
+      margin: 'auto', width: '100%', height:'50vh' }}>
+        <div className="login">  
           <h2 className="login-header">Log in</h2>
 
           <div className="login-container">
