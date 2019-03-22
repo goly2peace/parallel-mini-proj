@@ -37,7 +37,10 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div style={{ top: 0, bottom: 0, right: 0, left: 0, margin: 'auto', width: '100%', height:'100%' }}>
+      <div style={{
+      alignItems: 'center', position: 'absolute',
+      top: '20%', bottom: 0, right: 0, left: 0,
+      margin: 'auto', width: '100%', height:'50vh' }}>
         <div className="login">
           <div className="login-container">
             <p><input type="text" placeholder="Username" value={this.state.username} onChange={this.handleChange}/></p>
