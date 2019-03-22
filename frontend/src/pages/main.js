@@ -288,12 +288,12 @@ class Main extends Component {
                                                 style={{ 
                                                     width: '128px', 
                                                     marginTop: '0px',
-                                                    height: '48px', 
-                                                    width: '100%',
+                                                    height: '50px', 
+                                                    width: '50%',
                                                     backgroundColor: 'blueviolet',  
                                                     color: 'white',
                                                     fontSize: '18', 
-                                                    float: 'right', 
+                                                    float: 'left', 
                                                     marginRight: '0px',
                                                     borderRadius: '0px'
                                                 }}
@@ -315,6 +315,23 @@ class Main extends Component {
                                                     </ModalContainer>
                                                 }
                                             </button>
+                                            <button 
+                           style={{ 
+                            width: '128px', 
+                            marginTop: '0px',
+                            height: '50px', 
+                            width: '50%',
+                            backgroundColor: 'red',  
+                            color: 'white',
+                            fontSize: '18', 
+                            float: 'right', 
+                            marginRight: '0px',
+                            borderRadius: '0px'
+                        }}
+                        onClick={this.onLogOutClick}
+                    >
+                         <img alt = "app_icon" width = "20" src="logout.png"/> Log out
+                    </button>
                             <div className="myInner" id="inner" style={{ display: 'flex', flexDirection: 'column' }} >
                                 <div style={{ backgroundColor: 'rgba(0,0,0,0.1)', width: '100%', padding: 8 }} >JOINED GROUPS</div>
                                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', display: 'block', overflow: 'scroll' }}>
@@ -362,26 +379,12 @@ class Main extends Component {
                         <div className="wrapper">
                             <nav className="nav" id="nav">
                                 <div className="default-nav">
+            
+                                <center><font font size="6" color="black">Chat</font></center>
                                     <div className="main-nav">
                                         <div className="main-nav-item"><a className="main-nav-item-link" href="#">{this.state.selectGroupName}</a></div>
                                         <div className="options">
-                                        <button 
-                        style={{ 
-                            width: '128px', 
-                            marginTop: '0px',
-                            height: '30px', 
-                            backgroundColor: 'red', 
-                            borderColor: '#28d', 
-                            color: 'white',
-                            fontSize: 18, 
-                            float: 'right', 
-                            marginRight: '48px',
-                            borderRadius: '0px'
-                        }}
-                        onClick={this.onLogOutClick}
-                    >
-                         <img alt = "app_icon" width = "20" src="logout.png"/> Log out
-                    </button>
+                                       
                                         {
                                             this.state.selectedGroupID != '' &&
                                             <button 
