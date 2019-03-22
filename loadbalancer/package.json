@@ -12,8 +12,10 @@
     "cors": "^2.8.4",
     "debug": "~2.6.9",
     "express": "^4.16.4",
+    "inline-style-prefixer": "^4.0.0",
     "jade": "~1.11.0",
     "morgan": "^1.9.1",
+    "npm": "^4.0.0",
     "serve-favicon": "~2.4.5",
     "socket.io": "^2.1.0"
   }
