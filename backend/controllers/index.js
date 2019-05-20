@@ -280,4 +280,212 @@ router.get('/getMessageOrder',function(req,res) {
   });
 });
 
+
+router.get("/allrooms",async (req, res) => {
+  const room = await Group.find({});
+  console.log(room.name)
+  return res.status(200).send(
+    JSON.stringify(
+      room.map(r => {
+        return r.name;
+
+      })));
+});
+
+
+router.post("/allrooms", async (req, res) => {
+  const room = await Group.find({ name: req.body.id });
+  if(room.length == 0){
+    await Group.create({ name: req.body.id, user_id: [] });
+    return res.status(201).send(JSON.stringify({ id: req.body.id }));
+
+
+  }
+  return res.status(404).send(JSON.stringify(req.body.id + " already exists"));
+
+});
+
+router.put("/allrooms", async (req, res) => {
+  const room = await Group.find({ name: req.body.id });
+  if(room.length == 0){
+    await Group.create({ name: req.body.id, user_id: [] });
+    return res.status(201).send(JSON.stringify({ id: req.body.id }));
+
+
+  }
+  return res.status(200).send(JSON.stringify({ id: req.body.id }));
+
+});
+
+router.delete("/allrooms", async (req, res) => {
+  const room = await Group.find({ name: req.body.id });
+  // const join = await Join.find({ gid: room.id})
+  if(room.length != 0){
+    await Join.remove({ gid: room.id})
+    // console.log(join.length)
+    await Group.remove({ name: req.body.id });
+
+    return res.status(200).send(JSON.stringify(req.body.id + " is deleted"));
+
+
+  }
+  return res.status(404).send(JSON.stringify("Room id is not found"));
+
+});
+
+router.get("/room/:id",async (req, res) => {
+  const room = await Group.find({ name: req.params.id});
+  // var user;
+  // int i = 0;
+  // for( i = 0; i < join.length; i++){
+  //   user[i] = await User.find({ id: join.uid});
+  // };
+  // console.log(room.name)
+
+  // Join.aggregate([{
+  //   $lookup: {
+  //     from: "User",
+  //     localField: "uid",
+  //     foreignField: "id",
+  //     as: "userName"
+
+  //   }
+  // }])
+
+  const join = await Join.find({ gid: room.id})//.project({'userName.name': 1});
+  const user = await User.find(join.uid)
+  // console.log(join.uid)
+  console.log(user._id)
+  // console.log(room[0].id)
+  if(room.length == 0){
+    return res.status(404).send(JSON.stringify("Room does not exist"))
+  };
+  return res.status(200).send(
+    JSON.stringify(
+      join.map(u => {
+        return u.username;
+
+      })));
+});
+
+router.post("/room/:id", async (req, res) => {
+  const room = await Group.find({ name: req.params.id });
+  // const user = await User.find({ name: req.body.user});
+  const user = await User.find({ name: req.body.user},function(err,users) {
+    if(err) throw err
+      else if(users.length == 0) {
+        var user_model = new User({ name: req.body.user });
+        user_model.save(function(err,userss) {
+          if(err) throw err
+            // return res.send({ "uid": userss.id });
+        });
+      }
+      // else return res.send({ "uid": users[0].id });
+    // console.log(req.body.user)
+    });
+  // const user = User.find({ name: req.body.user});
+
+  const join = await Join.find({ uid: user[0].id, gid: room.id})
+
+  // console.log(req.body.user)
+  // console.log(user[0].name)
+
+  if(join.length == 0 ){
+    console.log("201")
+    await Join.create({ uid: user[0].id, username: req.body.user,  gid: room.id });
+    return res.status(201).send("{}");
+
+
+  }
+  console.log("200")
+  return res.status(200).send("{}");
+});
+
+
+router.put("/room/:id", async (req, res) => {
+  const room = await Group.find({ name: req.params.id });
+  // const user = await User.find({ name: req.body.user});
+  const user = User.find({ name: req.body.user },function(err,users) {
+    if(err) throw err
+      else if(users.length == 0) {
+        var user_model = new User({ name: req.body.user });
+        user_model.save(function(err,userss) {
+          if(err) throw err
+            // return res.send({ "uid": userss.id });
+        });
+      }
+      // else return res.send({ "uid": users[0].id });
+    });
+
+  const join = await Join.find({ uid: user.id, gid: room.id})
+
+
+  if(join.length == 0 ){
+    console.log("201")
+    await Join.create({ uid: user.id, gid: room.id });
+    return res.status(201).send("{}");
+
+
+  }
+  console.log("200")
+  return res.status(200).send("{}");
+});
+// router.put("/room/:ROOM_ID", async (req, res) => {
+//   const room = await Group.find({ name: req.params.ROOM_ID });
+//   // const user = await User.find({ name: req.body.user});
+//   const join = await Join.find({ uid: req.body.user, gid: req.params.ROOM_ID})
+
+//   if(join.length == 0){
+//     console.log("201")
+//     await Join.create({ uid: req.body.user, gid: req.params.ROOM_ID });
+//     return res.status(201).send("{}");
+
+
+//   }
+//   console.log("200")
+//   return res.status(200).send("{}");
+
+// });
+
+
+router.delete("/room/:id", async (req, res) => {
+  const room = await Group.find({ name: req.params.id });
+  // const user = await User.find({ name: req.body.user});
+  const user = await User.find({ name: req.body.user },function(err,users) {
+    if(err) throw err
+      else if(users.length == 0) {
+        var user_model = new User({ name: req.body.user });
+        user_model.save(function(err,userss) {
+          if(err) throw err
+            // return res.send({ "uid": userss.id });
+        });
+      }
+      // else return res.send({ "uid": users[0].id });
+    });
+  const join = await Join.find({ uid: user[0].id, gid: room.id})
+
+  if(join.length != 0){
+    await Join.remove({ uid: user[0].id, gid: room.id });
+    return res.status(200).send(JSON.stringify(req.body.user + " leaves the room"));
+
+
+  }
+  return res.status(404).send(JSON.stringify("User id is not found"));
+
+});
+
+
+router.get("/users",async (req, res) => {
+  const users = await User.find({});
+  //const queryString = "SELECT * FROM groups WHERE username LIKE '" + req.params.username + "%' and passwd = '" + req.params.password+"'" 
+  //const join = await Join.find({ gid: room.id})
+  return res.status(200).send(
+    JSON.stringify(
+      users.map(u => {
+        return u.name;
+
+      })));
+});
+
+router.post
 module.exports = router;
